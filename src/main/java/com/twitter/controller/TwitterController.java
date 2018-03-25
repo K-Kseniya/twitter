@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("twitter")
 public class TwitterController {
 	@Autowired
 	private TwitterService twitterService;

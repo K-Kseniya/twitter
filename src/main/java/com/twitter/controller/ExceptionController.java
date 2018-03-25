@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ExceptionController extends ResponseEntityExceptionHandler{
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Exception> exceptionHandler(HttpServletRequest req, Exception e)
-    {
+    public ResponseEntity<Exception> exceptionHandler(HttpServletRequest req, Exception e) {
         return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
     }
 

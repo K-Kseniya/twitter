@@ -12,7 +12,7 @@ public class TwitterService {
     private final Map<String, Set<UserMessage>> messages;
     private final Map<String, Set<String>> followers;
 
-    public TwitterService() {
+    TwitterService() {
         messages = new ConcurrentHashMap<>();
         followers = new ConcurrentHashMap<>();
     }
