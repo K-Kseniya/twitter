@@ -1,5 +1,4 @@
 # Simple Social Network Example
-Template example for Spring 4 MVC + RESTful Service with pure Java Configuration (no XML), using Maven build tool.
 
 ###1. Technologies
 * Spring 4.3.1.RELEASE
@@ -11,4 +10,33 @@ $ git clone https://github.com/K-Kseniya/twitter.git
 $ mvn tomcat7:run
 ```
 Access ```http://localhost:8080/springrest/twitter/```
+
+###3. Usage examples:
+curl -H "Content-Type: application/json" -X POST -d '''
+{"email": "email1@gmail.com", "message": "My first message"}
+''' localhost:8080/springrest/twitter/
+
+curl -H "Content-Type: application/json" -X POST -d '''
+{"email": "email2@gmail.com", "message": "My second message"}
+''' localhost:8080/springrest/twitter/
+
+curl -H "Content-Type: application/json" -X POST -d '''
+{"email": "email1@gmail.com", "message": "My first message 2"}
+''' localhost:8080/springrest/twitter/
+
+curl -H "Accept: application/json" http://localhost:8080/springrest/twitter/wall/email1%40gmail.com/
+curl -H "Accept: application/json" http://localhost:8080/springrest/twitter/wall/email2%40gmail.com/
+
+
+curl -H "Content-Type: application/json" -X POST -d '''
+{"user": "email@gmail.com", "friend": "email1@gmail.com"}
+''' localhost:8080/springrest/twitter/follow
+
+curl -H "Content-Type: application/json" -X POST -d '''
+{"user": "email@gmail.com", "friend": "email2@gmail.com"}
+''' localhost:8080/springrest/twitter/follow
+
+curl -H "Accept: application/json" http://localhost:8080/springrest/twitter/timeline/email%40gmail.com/
+
+###4. Documentation can be found via http://localhost:8080/springrest/twitter/swagger-ui.html
 

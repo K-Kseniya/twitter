@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 @Component
 public class TwitterService {
@@ -38,12 +39,10 @@ public class TwitterService {
         }
 
         Set<UserMessage> result = new TreeSet<>();
-        for (String friendEmail : emails) {
-            Set<UserMessage> friendsMessages = messages.get(friendEmail);
-            if (friendsMessages != null) {
-                result.addAll(friendsMessages);
-            }
-        }
+        emails.stream()
+                .map(messages::get)
+                .filter(Objects::nonNull)
+                .forEach(result::addAll);
 
         return result;
 

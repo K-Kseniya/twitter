@@ -18,7 +18,7 @@ class TwitterServiceTest {
     private static final String FRIEND_MESSAGE = "test2";
 
     @BeforeEach
-    public void init(){
+    void init(){
         service = new TwitterService();
     }
 
