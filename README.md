@@ -27,13 +27,12 @@ curl -H "Content-Type: application/json" -X POST -d '''
 curl -H "Accept: application/json" http://localhost:8080/springrest/twitter/wall/email1%40gmail.com/
 curl -H "Accept: application/json" http://localhost:8080/springrest/twitter/wall/email2%40gmail.com/
 
-
 curl -H "Content-Type: application/json" -X POST -d '''
-{"user": "email@gmail.com", "friend": "email1@gmail.com"}
+{"userEmail": "email@gmail.com", "friendEmail": "email1@gmail.com"}
 ''' localhost:8080/springrest/twitter/follow
 
 curl -H "Content-Type: application/json" -X POST -d '''
-{"user": "email@gmail.com", "friend": "email2@gmail.com"}
+{"userEmail": "email@gmail.com", "friendEmail": "email2@gmail.com"}
 ''' localhost:8080/springrest/twitter/follow
 
 curl -H "Accept: application/json" http://localhost:8080/springrest/twitter/timeline/email%40gmail.com/
