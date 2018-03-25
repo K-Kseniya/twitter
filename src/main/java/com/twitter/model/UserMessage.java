@@ -39,8 +39,8 @@ public class UserMessage implements Comparable {
     public int compareTo(Object o) {
         UserMessage another = (UserMessage) o;
         if(o == null) {
-            return 1;
+            return -1;
         }
-        return this.getTimestamp().compareTo(another.getTimestamp());
+        return another.getTimestamp().compareTo(this.getTimestamp());
     }
 }
