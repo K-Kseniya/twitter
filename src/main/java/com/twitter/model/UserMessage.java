@@ -35,10 +35,12 @@ public class UserMessage implements Comparable {
         return timestamp;
     }
 
-    // TODO NLE check
     @Override
     public int compareTo(Object o) {
         UserMessage another = (UserMessage) o;
+        if(o == null) {
+            return 1;
+        }
         return this.getTimestamp().compareTo(another.getTimestamp());
     }
 }

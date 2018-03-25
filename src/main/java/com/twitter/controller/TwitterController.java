@@ -9,15 +9,12 @@ import com.twitter.service.TwitterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
+@RequestMapping("twitter")
 public class TwitterController {
 	@Autowired
 	private TwitterService twitterService;
@@ -28,7 +25,7 @@ public class TwitterController {
 		return new ResponseEntity<>(userMessage, HttpStatus.OK);
 	}
 
-	@GetMapping("/wall/{userEmail}")
+	@GetMapping("/wall/{userEmail:.+}")
 	public ResponseEntity<Collection<UserMessage>> getWall(@PathVariable("userEmail") String userEmail) {
 		Collection<UserMessage> wall = twitterService.getWall(userEmail);
 		return new ResponseEntity<>(wall, HttpStatus.OK);
@@ -40,7 +37,7 @@ public class TwitterController {
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
-	@GetMapping("/timeline/{userEmail}")
+	@GetMapping("/timeline/{userEmail:.+}")
 	public ResponseEntity<Collection<UserMessage>> getTimeline(@PathVariable("userEmail") String userEmail) {
 		Collection<UserMessage> timeline = twitterService.getTimeline(userEmail);
 		return new ResponseEntity<>(timeline, HttpStatus.OK);
